@@ -1,0 +1,14 @@
+﻿@model IEnumerable<KWSW.Training.CharApp.Contracts.Chat>
+@{
+    ViewData["Title"] = "Chat rooms";
+}
+<h1>@ViewData["Title"]</h1>
+
+<ul>
+    @{
+        foreach (var chat in Model)
+        {
+            <li>@Html.DisplayFor(m => chat.Name) @Html.ActionLink("go to chat", "Details", new {chatId = chat.Id}) </li>
+        }
+    }
+</ul>

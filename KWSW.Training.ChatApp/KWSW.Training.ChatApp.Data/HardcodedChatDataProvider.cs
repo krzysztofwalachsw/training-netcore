@@ -1,29 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using KWSW.Training.CharApp.Contracts;
-using Microsoft.AspNetCore.Mvc;
 
-namespace KWSW.Training.ChatApp.Controllers
+namespace KWSW.Training.ChatApp.Data
 {
-    public class RoomController : Controller
+    public class HardcodedChatDataProvider : IChatDataProvider
     {
-        public IActionResult List()
+        public Chat Get(int id)
         {
-            var model = new List<Room>()
+            var model = new Chat()
             {
-                new Room() {Id = 1, Name = "Room 1"},
-                new Room() {Id = 2, Name = "Room 2"},
-            };
-            return View(model);
-        }
-
-        public IActionResult Chat(int roomId)
-        {
-            var model = new Room()
-            {
-                Name = $"Room {roomId}",
+                Name = $"Chat room {id}",
                 Messages = new List<Message>()
                 {
                     new Message()
@@ -34,7 +21,17 @@ namespace KWSW.Training.ChatApp.Controllers
                         {Id = 103, AuthorName = "Mr Z", Text = "Hello from Z", TimePosted = DateTime.Now.AddHours(0)},
                 }
             };
-            return View(model);
+            return model;
+        }
+
+        public IEnumerable<Chat> GetAll()
+        {
+            var model = new List<Chat>()
+            {
+                new Chat() {Id = 1, Name = "Chat room 1"},
+                new Chat() {Id = 2, Name = "Chat room 2"},
+            };
+            return model;
         }
     }
 }

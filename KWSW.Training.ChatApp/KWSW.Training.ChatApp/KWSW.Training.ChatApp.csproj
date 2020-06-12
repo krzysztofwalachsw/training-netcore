@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\KWSW.Training.CharApp.Contracts\KWSW.Training.CharApp.Contracts.csproj" />
+    <ProjectReference Include="..\KWSW.Training.ChatApp.Data\KWSW.Training.ChatApp.Data.csproj" />
+    <ProjectReference Include="..\KWSW.Training.ChatApp.Services\KWSW.Training.ChatApp.Services.csproj" />
   </ItemGroup>
 
 

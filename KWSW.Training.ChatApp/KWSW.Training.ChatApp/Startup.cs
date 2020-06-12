@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using KWSW.Training.ChatApp.Data;
+using KWSW.Training.ChatApp.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +26,9 @@ namespace KWSW.Training.ChatApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddTransient<IChatDataProvider, HardcodedChatDataProvider>();
+            services.AddTransient<IChatService, ChatService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
