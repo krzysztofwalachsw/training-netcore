@@ -1,0 +1,15 @@
+﻿@model KWSW.Training.CharApp.Contracts.Room
+@{
+    ViewData["Title"] = "Chat rooms";
+}
+<h1>@ViewData["Title"]</h1>
+
+<h3>This is chat room "@Html.DisplayFor(m => Model.Name)"</h3>
+<ul>
+    @{
+        foreach (var message in Model.Messages)
+        {
+            <li>@Html.Raw($"{message.AuthorName} {message.TimePosted} wrote: {message.Text}")</li>
+        }
+    }
+</ul>
